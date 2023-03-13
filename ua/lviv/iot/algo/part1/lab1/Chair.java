@@ -7,7 +7,6 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-
 public class Chair {
     private int id;
     private String material;
@@ -42,21 +41,14 @@ public class Chair {
     }
 
     public static void main(String[] args) {
-        Chair[] chairs = new Chair[4];
-        chairs[0] = new Chair();
-        chairs[0].setId(200);
-        chairs[0].setMaterial("plastic");
-        chairs[0].occupy("Bob");
-        chairs[0].setMaxWeight(100);
-        chairs[1] = new Chair(100, "tree", 40, "Bohdan");
-        chairs[1].release();
-        System.out.println(chairs[1].toString());
-        chairs[2] = getInstance();
-        chairs[3] = getInstance();
-        int i = 0;
-        while (i < chairs.length) {
-            System.out.println("Object identifier: " + chairs[i].hashCode());
-            i++;
+        Chair[] chairs = {
+                new Chair(),
+                new Chair(100, "tree", 40, "Bohdan"),
+                getInstance(),
+                getInstance()
+        };
+        for (Chair chair : chairs) {
+            System.out.println(chair);
         }
 
 
