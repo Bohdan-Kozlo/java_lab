@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<pmd xmlns="http://pmd.sourceforge.net/report/2.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pmd.sourceforge.net/report/2.0.0 http://pmd.sourceforge.net/report_2_0_0.xsd" version="6.53.0" timestamp="2023-04-08T13:11:38.774">
-<file name="B:\JavaProjects\Laba20\work\src\main\java\ua\lviv\iot\algo\part1\lab3\SoftChair.java">
-<violation beginline="20" endline="20" begincolumn="17" endcolumn="21" rule="UnusedFormalParameter" ruleset="Best Practices" package="ua.lviv.iot.algo.part1.lab3" class="SoftChair" method="SoftChair" variable="depth" externalInfoUrl="https://pmd.github.io/pmd-6.53.0/pmd_rules_java_bestpractices.html#unusedformalparameter" priority="3">
-Avoid unused constructor parameters such as 'depth'.
-</violation>
-</file>
-</pmd>
