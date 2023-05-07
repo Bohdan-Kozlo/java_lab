@@ -1,4 +1,4 @@
-package ua.lviv.iot.algo.part1.lab4;
+package ua.lviv.iot.algo.part1.lab4.models;
 
 import lombok.*;
 
@@ -18,7 +18,8 @@ public class FeedingTable extends Chair {
     }
 
     public String toCSV() {
-        return super.toCSV() + " , " + getMaxHeightChair() + ", " + getMinHeightChair() + ", " + getAgeChild() + ", " + getCurrentHeightChar();
+        return super.toCSV() + " , " + getMaxHeightChair() + ", " + getMinHeightChair() + ", " + getAgeChild() + ", "
+                + getCurrentHeightChar();
     }
 
     @Override

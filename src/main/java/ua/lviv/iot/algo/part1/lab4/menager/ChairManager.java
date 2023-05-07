@@ -1,12 +1,16 @@
-package ua.lviv.iot.algo.part1.lab4;
+package ua.lviv.iot.algo.part1.lab4.menager;
+
+import lombok.Getter;
+import ua.lviv.iot.algo.part1.lab4.models.Chair;
 
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Getter
 public class ChairManager {
-    protected final List<Chair> chairs;
+    private final List<Chair> chairs;
 
     public ChairManager() {
         chairs = new ArrayList<>();

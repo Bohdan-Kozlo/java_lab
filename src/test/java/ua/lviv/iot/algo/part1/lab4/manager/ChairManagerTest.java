@@ -1,12 +1,13 @@
-package ua.lviv.iot.algo.part1.lab4;
+package ua.lviv.iot.algo.part1.lab4.manager;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import ua.lviv.iot.algo.part1.lab4.menager.ChairManager;
+import ua.lviv.iot.algo.part1.lab4.models.*;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 public class ChairManagerTest {
     private ChairManager manager;
@@ -31,42 +32,42 @@ public class ChairManagerTest {
     @Test
     public void testAddNullChair() {
         manager.addChair(null);
-        assertTrue(manager.chairs.contains(null));
+        Assertions.assertTrue(manager.getChairs().contains(null));
     }
 
     @Test
     public void testAddChair() {
         Chair chair = new SoftChair(1, "suede", 150, "John", "foam", 60, true);
         manager.addChair(chair);
-        assertTrue(manager.chairs.contains(chair));
+        Assertions.assertTrue(manager.getChairs().contains(chair));
     }
 
     @Test
     public void testSearchByMaterial() {
         setUp();
         List<Chair> result = manager.searchByMaterial("wood");
-        assertEquals(2, result.size());
+        Assertions.assertEquals(2, result.size());
     }
 
     @Test
     public void testSearchByMaxWeight() {
         setUp();
         List<Chair> result = manager.searchByMaxWeight(190);
-        assertEquals(2, result.size());
+        Assertions.assertEquals(2, result.size());
     }
 
     @Test
     public void testSearchByNonExistentMaterial() {
         setUp();
         List<Chair> result = manager.searchByMaterial("metal");
-        assertTrue(result.isEmpty());
+        Assertions.assertTrue(result.isEmpty());
     }
 
     @Test
     public void testSearchByNonExistentMaxWeight() {
         setUp();
         List<Chair> result = manager.searchByMaxWeight(300);
-        assertTrue(result.isEmpty());
+        Assertions.assertTrue(result.isEmpty());
 
     }
 
@@ -74,7 +75,7 @@ public class ChairManagerTest {
     public void testSortByChairTypeNull() {
         List<Chair> chairs = new ArrayList<>();
         List<Chair> result = manager.sortByChairType(chairs);
-        assertTrue(result.isEmpty());
+        Assertions.assertTrue(result.isEmpty());
     }
 
     @Test
@@ -86,8 +87,8 @@ public class ChairManagerTest {
         expected.add(chair6);
         expected.add(chair3);
         expected.add(chair4);
-        List<Chair> actual = manager.sortByChairType(manager.chairs);
-        assertEquals(expected, actual);
+        List<Chair> actual = manager.sortByChairType(manager.getChairs());
+        Assertions.assertEquals(expected, actual);
     }
 
 }

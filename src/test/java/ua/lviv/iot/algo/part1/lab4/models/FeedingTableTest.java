@@ -1,9 +1,8 @@
-package ua.lviv.iot.algo.part1.lab4;
+package ua.lviv.iot.algo.part1.lab4.models;
 
 import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 public class FeedingTableTest {
     FeedingTable table;
@@ -17,13 +16,13 @@ public class FeedingTableTest {
     public void testAdjustPosition() {
         setUp();
         table.adjustPosition(10);
-        assertEquals(85, table.getCurrentHeightChar());
+        Assertions.assertEquals(85, table.getCurrentHeightChar());
 
         table.adjustPosition(10);
-        assertTrue(table.getCurrentHeightChar() <= table.getMaxHeightChair());
+        Assertions.assertTrue(table.getCurrentHeightChar() <= table.getMaxHeightChair());
 
         table.adjustPosition(-10);
-        assertTrue(table.getCurrentHeightChar() >= table.getMinHeightChair());
+        Assertions.assertTrue(table.getCurrentHeightChar() >= table.getMinHeightChair());
     }
 
 }

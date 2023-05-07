@@ -1,9 +1,9 @@
-package ua.lviv.iot.algo.part1.lab4;
+package ua.lviv.iot.algo.part1.lab4.models;
 
 import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 
-import static org.junit.jupiter.api.Assertions.*;
 
 public class OfficeChairTest {
     OfficeChair table;
@@ -17,7 +17,7 @@ public class OfficeChairTest {
     public void testAdjustPosition() {
         setUp();
         table.adjustPosition(10);
-        assertEquals(55, table.getCurrentInclineBack());
+        Assertions.assertEquals(55, table.getCurrentInclineBack());
     }
 
 }

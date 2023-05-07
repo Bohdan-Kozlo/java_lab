@@ -1,9 +1,9 @@
-package ua.lviv.iot.algo.part1.lab4;
+package ua.lviv.iot.algo.part1.lab4.models;
 
 import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 
-import static org.junit.jupiter.api.Assertions.*;
 
 public class ChairTest {
     Chair chair;
@@ -17,21 +17,21 @@ public class ChairTest {
     public void testOccupy() {
         setUp();
         chair.occupy("Oleg");
-        assertTrue(chair.isOccupied());
+        Assertions.assertTrue(chair.isOccupied());
     }
 
     @Test
     public void testRelease() {
         setUp();
         chair.release();
-        assertFalse(chair.isOccupied());
+        Assertions.assertFalse(chair.isOccupied());
     }
 
     @Test
     public void testIsOccupied() {
         setUp();
         boolean testOccupied = chair.isOccupied();
-        assertTrue(testOccupied);
+        Assertions.assertTrue(testOccupied);
     }
 
 

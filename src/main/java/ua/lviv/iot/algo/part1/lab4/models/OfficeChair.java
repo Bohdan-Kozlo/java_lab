@@ -1,4 +1,4 @@
-package ua.lviv.iot.algo.part1.lab4;
+package ua.lviv.iot.algo.part1.lab4.models;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -20,7 +20,8 @@ public class OfficeChair extends Chair {
     }
 
     public String toCSV() {
-        return super.toCSV() + " , " + getChairType() + ", " + getMaterialOfUpholstery() + ", " + getCurrentInclineBack();
+        return super.toCSV() + " , " + getChairType() + ", " + getMaterialOfUpholstery() + ", "
+                + getCurrentInclineBack();
     }
 
     public OfficeChair(
