@@ -1,14 +1,14 @@
-package ua.lviv.iot.algo.part1.lab4.models;
+package ua.lviv.iot.algo.part1.laba6.model;
 
 import lombok.*;
 
-@Getter
-@Setter
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
+@Setter
+@Getter
 @ToString
 public abstract class Chair {
-    private int id;
+    private Integer id;
     private String material;
     private int maxWeight;
     private String owner;
@@ -22,10 +22,6 @@ public abstract class Chair {
         return getId() + ", " + getMaterial() + ", " + getMaxWeight() + ", " + getOwner();
     }
 
-    public void adjustPosition(int value) {
-
-    }
-
     public void occupy(String owner) {
         this.owner = owner;
     }
@@ -37,5 +33,4 @@ public abstract class Chair {
     public boolean isOccupied() {
         return this.owner != null;
     }
-
 }

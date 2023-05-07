@@ -1,11 +1,11 @@
-package ua.lviv.iot.algo.part1.lab4.controller;
+package ua.lviv.iot.algo.part1.laba6.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import ua.lviv.iot.algo.part1.lab4.models.Chair;
-import ua.lviv.iot.algo.part1.lab4.models.FeedingTable;
-import ua.lviv.iot.algo.part1.lab4.service.ChairService;
+import ua.lviv.iot.algo.part1.laba6.model.Chair;
+import ua.lviv.iot.algo.part1.laba6.model.FeedingTable;
+import ua.lviv.iot.algo.part1.laba6.service.ChairService;
 
 import java.util.List;
 
@@ -15,6 +15,11 @@ public class ChairController {
 
     @Autowired
     private ChairService service;
+
+    @GetMapping("/test")
+    public FeedingTable test() {
+        return new FeedingTable(1, "plastic", 185, "Mary", 110, 75, 75, 1);
+    }
 
     @GetMapping
     public List<FeedingTable> getChairs() {
@@ -33,23 +38,22 @@ public class ChairController {
 
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<Void> deleteChair(@PathVariable Integer id) {
-        boolean delete = service.deleteChair(id);
+        boolean delete = service.delete(id);
         if (delete) {
-            return ResponseEntity.ok().build();
+            return ResponseEntity.noContent().build();
         } else {
             return ResponseEntity.notFound().build();
         }
     }
 
     @PostMapping("/create")
-    public ResponseEntity<Void> createChair(@RequestBody FeedingTable chair) {
-        service.createChair(chair);
-        return ResponseEntity.ok().build();
+    public void createChair(@RequestBody FeedingTable chair) {
+        service.create(chair);
     }
 
     @PutMapping("/chair{id}")
     public ResponseEntity<FeedingTable> updateChair(@PathVariable Integer id, @RequestBody FeedingTable chair) {
-        Chair updateChair = service.updateChair(id, chair);
+        Chair updateChair = service.update(id, chair);
         if (updateChair == null) {
             return ResponseEntity.notFound().build();
         } else {

@@ -1,16 +1,17 @@
-package ua.lviv.iot.algo.part1.lab4.models;
+package ua.lviv.iot.algo.part1.laba6.model;
 
 import lombok.*;
 
+@NoArgsConstructor
 @Setter
 @Getter
-@NoArgsConstructor
 @ToString(callSuper = true)
 public class FeedingTable extends Chair {
     private int maxHeightChair;
     private int minHeightChair;
     private int ageChild;
     private int currentHeightChar;
+
     public static final String HEADERS = " maxHeightChair, minHeightChair, ageChild, currentHeightChar";
 
     public String getHeaders() {
@@ -22,12 +23,7 @@ public class FeedingTable extends Chair {
                 + getCurrentHeightChar();
     }
 
-    @Override
-    public void adjustPosition(int value) {
-        currentHeightChar += value;
-    }
-
-    public FeedingTable(int id,
+    public FeedingTable(Integer id,
                         String material,
                         int maxWeight,
                         String owner,
@@ -36,9 +32,14 @@ public class FeedingTable extends Chair {
                         int currentHeightChar,
                         int ageChild) {
         super(id, material, maxWeight, owner);
-        this.minHeightChair = minHeightChair;
         this.maxHeightChair = maxHeightChair;
-        this.ageChild = ageChild;
+        this.minHeightChair = minHeightChair;
         this.currentHeightChar = currentHeightChar;
+        this.ageChild = ageChild;
     }
+
+    public void adjustPosition(int value) {
+        currentHeightChar += value;
+    }
+
 }

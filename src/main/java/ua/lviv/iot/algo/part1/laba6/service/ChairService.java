@@ -1,14 +1,15 @@
-package ua.lviv.iot.algo.part1.lab4.service;
+package ua.lviv.iot.algo.part1.laba6.service;
 
 import lombok.NoArgsConstructor;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
-import ua.lviv.iot.algo.part1.lab4.models.Chair;
-import ua.lviv.iot.algo.part1.lab4.models.FeedingTable;
+import ua.lviv.iot.algo.part1.laba6.model.Chair;
+import ua.lviv.iot.algo.part1.laba6.model.FeedingTable;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+
 
 @NoArgsConstructor
 @Scope(value = "singleton")
@@ -29,13 +30,13 @@ public class ChairService {
         }
     }
 
-    public void createChair(FeedingTable chair) {
+    public void create(FeedingTable chair) {
         chair.setId(nextAvailableId);
         chairs.put(chair.getId(), chair);
         nextAvailableId++;
     }
 
-    public Chair updateChair(Integer id, FeedingTable chair) {
+    public Chair update(Integer id, FeedingTable chair) {
         if (chairs.containsKey(id)) {
             chairs.remove(id);
             chair.setId(nextAvailableId);
@@ -45,7 +46,7 @@ public class ChairService {
         return null;
     }
 
-    public boolean deleteChair(Integer id) {
+    public boolean delete(Integer id) {
         if (chairs.containsKey(id) && id != null) {
             chairs.remove(id);
             return true;
@@ -53,4 +54,3 @@ public class ChairService {
         return false;
     }
 }
-
