@@ -16,11 +16,6 @@ public class ChairController {
     @Autowired
     private ChairService service;
 
-    @GetMapping("/test")
-    public FeedingTable test() {
-        return new FeedingTable(1, "plastic", 185, "Mary", 110, 75, 75, 1);
-    }
-
     @GetMapping
     public List<FeedingTable> getChairs() {
         return service.getAll();
@@ -36,7 +31,7 @@ public class ChairController {
         }
     }
 
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteChair(@PathVariable Integer id) {
         boolean delete = service.delete(id);
         if (delete) {
@@ -46,13 +41,14 @@ public class ChairController {
         }
     }
 
-    @PostMapping("/create")
-    public void createChair(@RequestBody FeedingTable chair) {
+    @PostMapping
+    public ResponseEntity<FeedingTable> createChair(@RequestBody FeedingTable chair) {
         service.create(chair);
+        return ResponseEntity.ok().build();
     }
 
-    @PutMapping("/chair{id}")
-    public ResponseEntity<FeedingTable> updateChair(@PathVariable Integer id, @RequestBody FeedingTable chair) {
+    @PutMapping("/{id}")
+    public ResponseEntity<Void> updateChair(@PathVariable Integer id, @RequestBody FeedingTable chair) {
         Chair updateChair = service.update(id, chair);
         if (updateChair == null) {
             return ResponseEntity.notFound().build();
